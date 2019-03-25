@@ -56,6 +56,11 @@ status "Default supported Swift version is $DEFAULT_SWIFT_VERSION"
 rm -rf $BUILD_DIR/.build
 rm -rf $BUILD_DIR/Packages
 
+# Rename a pre-built (pipeline) build folder for use
+if [ -d "$BUILD_DIR/.pre-build" ]; then
+  mv $BUILD_DIR/.pre-build $BUILD_DIR/.build
+fi
+
 # ----------------------------------------------------------------------------- #
 # Create libraries and binnaries folders for droplet                            #
 # ----------------------------------------------------------------------------- #
