@@ -231,11 +231,7 @@ else
   SWIFT_BUILD_OPTIONS=""
 fi
 
-if [[ $BLUEMIX_APP_MGMT_ENABLE == *"debug"* ]]; then
-  BUILD_CONFIGURATION="debug"
-else
-  BUILD_CONFIGURATION="release"
-fi
+BUILD_CONFIGURATION="debug"
 status "Build config: $BUILD_CONFIGURATION"
 
 swift build --configuration $BUILD_CONFIGURATION $SWIFT_BUILD_OPTIONS -Xcc -I$BUILD_DIR/.apt/usr/include -Xlinker -L$BUILD_DIR/.apt/usr/lib -Xlinker -L$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu -Xlinker -rpath=$BUILD_DIR/.apt/usr/lib | indent
